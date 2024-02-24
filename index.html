@@ -46,7 +46,6 @@
   position: relative;
   list-style: none;
   margin-left: 9%;
-  animation: 2s ease-in;
 }
 
 .timeline .timeline-item {
@@ -95,6 +94,9 @@
         <p class="text-white my-description mt-4"><b>In Developer</b></p>
     </div>
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <div data-aos="zoom-in" data-aos-duration="1000">
     <div class="about-page mt-5">
       <div class="container">
         <div class="row">
@@ -141,6 +143,7 @@
         </div>
       </div>
     </div>
+  </div>
 
     <div class="experience-page mt-5">
         <div class="container">
@@ -148,15 +151,18 @@
             <p class="text-center">pengalaman saya saat menjadi mahasiswa.</p>
             <div class="row row-gap-4">
                 <div class="col-md-4">
+                  <div data-aos="fade-up" data-aos-duration="1000" >
                     <div class="card shadow">
-                        <div class="card-body text-center">
-                            <i class="fa fa-gear" style="font-size: 100px;"></i>
-                            <h1>Service Pesawat</h1>
-                            <p>saya pernah membantu ayah menyervis pesawat</p>
-                        </div>
+                      <div class="card-body text-center">
+                        <i class="fa fa-gear" style="font-size: 100px;"></i>
+                        <h1>Service Pesawat</h1>
+                        <p>saya pernah membantu ayah menyervis pesawat</p>
+                      </div>
                     </div>
+                  </div>
                 </div>
                 <div class="col-md-4">
+                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" >
                     <div class="card shadow">
                         <div class="card-body text-center">
                             <i class="fa-brands fa-servicestack" style="font-size: 100px;"></i>
@@ -164,8 +170,10 @@
                             <p>saya juga pernah membantu ayah menyervis tank</p>
                         </div>
                     </div>
+                  </div>  
                 </div>
                 <div class="col-md-4">
+                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" >
                     <div class="card shadow">
                         <div class="card-body text-center">
                             <i class="fa-solid fa-mug-hot" style="font-size: 100px;"></i>
@@ -173,6 +181,7 @@
                             <p>Ngopi adalah salah satu hobi saya,dengan ngopi hidup lebih berwarna</p>
                         </div>
                     </div>
+                  </div>  
                 </div>
            </div>
        </div>
@@ -325,7 +334,7 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2024 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">meganatadafa.github.io</a>
   </div>
   <!-- Copyright -->
 </footer>
@@ -334,5 +343,10 @@
   </main>
 
   <script> src="style/js//bootstrap.min.js"</script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
