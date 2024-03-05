@@ -7,16 +7,18 @@
   <title>My Portofolio</title>
   <link rel="stylesheet" href="style/css/bootstrap.min.css">
   <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
-    .body{
-      background-color: #f5f6fa;
+    .body {
+      background-color: rgb(17, 215, 230);
     }
 
-    .navbar-collapse{
+    .navbar-collapse {
       justify-content: end;
     }
 
-    .main-page{
+    .main-page {
       background-image: url('img/background.jpg');
       background-repeat: no-repeat;
       background-size: cover;
@@ -24,16 +26,16 @@
       height: 100vh;
     }
 
-    .my-name{
+    .my-name {
       font-size: 90px;
-      
+
     }
 
-    .my-description{
+    .my-description {
       font-size: 35px;
     }
 
-    .judul{
+    .judul {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -42,99 +44,221 @@
     }
 
     .timeline {
-  border-left: 2px solid hsl(0, 0%, 90%);
-  position: relative;
+      border-left: 2px solid hsl(0, 0%, 90%);
+      position: relative;
+      list-style: none;
+      margin-left: 9%;
+    }
+
+    .timeline .timeline-item {
+      position: relative;
+    }
+
+    .timeline .timeline-item:after {
+      position: relative;
+      display: inline-block;
+      top: -16ch;
+      
+    }
+
+    .timeline .timeline-item:after {
+      background-color: hsl(0, 0%, 0%);
+      left: -38px;
+      border-radius: 50%;
+      height: 11px;
+      width: 11px;
+      content: "";
+    }
+
+    /* portfolio */
+    .portfolio #portfolio-flters {
   list-style: none;
-  margin-left: 9%;
+  margin-bottom: 20px;
 }
 
-.timeline .timeline-item {
-  position: relative;
+.portfolio #portfolio-flters li {
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px 5px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  color: #444444;
+  transition: all 0.3s;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
 }
 
-.timeline .timeline-item:after {
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
+  background: #47b2e4;
+  color: #fff;
+}
+
+.portfolio .portfolio-item {
+  margin-bottom: 30px;
+}
+
+.portfolio .portfolio-item .portfolio-img {
+  overflow: hidden;
+}
+
+.portfolio .portfolio-item .portfolio-img img {
+  transition: all 0.6s;
+}
+
+.portfolio .portfolio-item .portfolio-info {
+  opacity: 0;
   position: absolute;
-  display: block;
-  top: 0;
+  left: 15px;
+  bottom: 0;
+  z-index: 3;
+  right: 15px;
+  transition: all 0.3s;
+  background: rgba(55, 81, 126, 0.8);
+  padding: 10px 15px;
 }
 
-.timeline .timeline-item:after {
-  background-color: hsl(0, 0%, 90%);
-  left: -38px;
-  border-radius: 50%;
-  height: 11px;
-  width: 11px;
-  content: "";
+.portfolio .portfolio-item .portfolio-info h4 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0px;
 }
+
+.portfolio .portfolio-item .portfolio-info p {
+  color: #f9fcfe;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.portfolio .portfolio-item .portfolio-info .preview-link,
+.portfolio .portfolio-item .portfolio-info .details-link {
+  position: absolute;
+  right: 40px;
+  font-size: 24px;
+  top: calc(50% - 18px);
+  color: #fff;
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-item .portfolio-info .preview-link:hover,
+.portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: #47b2e4;
+}
+
+.portfolio .portfolio-item .portfolio-info .details-link {
+  right: 10px;
+}
+
+.portfolio .portfolio-item:hover .portfolio-img img {
+  transform: scale(1.15);
+}
+
+.portfolio .portfolio-item:hover .portfolio-info {
+  opacity: 1;
+}
+
+
   </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Portofolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-         
-        </ul>
-      </div>
+  <!-- Navbar  -->
+
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark bg-gradient">
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about-me" class="nav-link">About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="#pengalaman" class="nav-link">Pengalaman</a>
+        </li>
+        <li class="nav-item">
+          <a href="#perjalanan" class="nav-link">Perjalanan</a>
+        </li>
+        <li class="nav-item">
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+        </li>
+      </ul>
     </div>
   </nav>
-
   <main class="main-page">
 
     <div class="judul">
-        <h1 class="text-white my-name">Hi saya Dafa D Valgaz</h1>
-        <p class="text-white my-description mt-4"><b>In Developer</b></p>
+      <h1 class="text-white my-name">Hi saya Dafa D Valgaz</h1>
+      <p class="text-white my-description mt-4"><b>In Developer</b></p>
     </div>
 
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <div data-aos="zoom-in" data-aos-duration="1000">
-    <div class="about-page mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card shadow p-4">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col-5">
-                        <img class="img-fluid profile rounded" src="img/profile.jpg" alt="">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="about-page mt-5" id="about-me">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card shadow p-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-5">
+                          <img class="img-fluid profile rounded" src="img/profile.jpg" alt="">
+                        </div>
+                        <div class="col-7">
+                          <p><b>Nama :</b>M. Meganata Dafa W.</p>
+                          <p><b>Profile :</b> Web Developer</p>
+                          <p><b>Email :</b> ariesteeven@gmail.com</p>
+                          <p><b>Phone :</b> 085755913423</p>
+                          <p><b>Id FF :</b> 476366813</p>
+                        </div>
                       </div>
-                      <div class="col-7">
-                        <p><b>Nama      :</b>M. Meganata Dafa W.</p>
-                        <p><b>Profile   :</b> Web Developer</p>
-                        <p><b>Email     :</b> ariesteeven@gmail.com</p>
-                        <p><b>Phone     :</b> 085755913423</p>
-                        <p><b>Id FF     :</b> 476366813</p>
+
+                      <h5 class="mt-5">Skill</h5>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">HTML</li>
+                        <li class="list-group-item">CSS</li>
+                        <li class="list-group-item">Bootstrap</li>
+                        <li class="list-group-item">PHP</li>
+                        <li class="list-group-item">Laravel</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <h1>About Me</h1>
+                      <p class="mb-3 fs-5">Perkenalkan nama saya Muhammad Meganata Dafa Wardana.Saya lebih sering
+                        dipanggil Dafa.Saya lahir di Mojokerto tepatnya pada tanggal 14 Mei 2008,saat ini saya berusia
+                        15 tahun.Saya anak ke dua dari dua bersaudara.</p>
+
+                      <p class="mb-3 fs-5">Saya adalah murid dari SMKN 1 Dlanggu dari jurusan RPL kelas 10.Pelajaran
+                        kesukaan saya adalah jamkos.Saya mengisi waktu luang saya dengan bermain epep dan berlatih
+                        pepengshot.</p>
+
+                      <p class="mb-3 fs-5">Saya tinggal di Mojokerto lebih tepatnya di Desa Gedangan,Dusun Belahan.</p>
+
+                      <div>
+                        <a href="https://www.facebook.com/meganata.dafa.3?mibextid=ZbWKwL" class="me-lg-4 text-reset">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/meganatadafa_?igsh=MTNoam8zazJ1eG9rZw=="
+                          class="me-lg-4 text-reset">
+                          <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@iki_dafa?_t=8k61RLwYqbI&_r=1" class="me-lg-4 text-reset">
+                          <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://meganatadafa.github.io/" class="me-lg-4 text-reset">
+                          <i class="fab fa-github"></i>
+                          <a href="https://wa.me/6285755913423" class="me-lg-4 text-reset">
+                            <i class="fab fa-fw fa-whatsapp"></i>
+                          </a>
                       </div>
                     </div>
-
-                    <h5 class="mt-5">Skill</h5>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">HTML</li>
-                      <li class="list-group-item">CSS</li>
-                      <li class="list-group-item">Bootstrap</li>
-                      <li class="list-group-item">PHP</li>
-                      <li class="list-group-item">Laravel</li>
-                    </ul>
-                  </div>
-                  <div class="col-md-6">
-                    <h1>About Me</h1>
-                    <p class="mb-3 fs-5">Perkenalkan nama saya Muhammad Meganata Dafa Wardana.Saya lebih sering dipanggil Dafa.Saya lahir di Mojokerto tepatnya pada tanggal 14 Mei 2008,saat ini saya berusia 15 tahun.Saya anak ke dua dari dua bersaudara.</p>
-
-                    <p class="mb-3 fs-5">Saya adalah murid dari SMKN 1 Dlanggu dari jurusan RPL kelas 10.Pelajaran kesukaan saya adalah jamkos.Saya mengisi waktu luang saya dengan bermain epep dan berlatih pepengshot.</p>
-
-                    <p class="mb-3 fs-5">Saya tinggal di Mojokerto lebih tepatnya di Desa Gedangan,Dusun Belahan.</p>
-                   </div>
                   </div>
                 </div>
               </div>
@@ -145,208 +269,322 @@
     </div>
   </div>
 
-    <div class="experience-page mt-5">
-        <div class="container">
-            <h1 class="text-center">Pengalaman</h1>
-            <p class="text-center">pengalaman saya saat menjadi mahasiswa.</p>
-            <div class="row row-gap-4">
-                <div class="col-md-4">
-                  <div data-aos="fade-up" data-aos-duration="1000" >
-                    <div class="card shadow">
-                      <div class="card-body text-center">
-                        <i class="fa fa-gear" style="font-size: 100px;"></i>
-                        <h1>Service Pesawat</h1>
-                        <p>saya pernah membantu ayah menyervis pesawat</p>
-                      </div>
-                    </div>
-                  </div>
+    <div class="experience-page mt-5" id="pengalaman">
+      <div class="container">
+        <div data-aos="fade-up" data-aos-duration="1000">
+          <h1 class="text-center">Pengalaman</h1>
+          <p class="text-center">pengalaman saya saat menjadi mahasiswa.</p>
+        </div>
+        <div class="row row-gap-4">
+          <div class="col-md-4">
+            <div data-aos="fade-up" data-aos-duration="1000">
+              <div class="card shadow">
+                <div class="card-body text-center">
+                  <i class="fa fa-gear" style="font-size: 100px;"></i>
+                  <h1>Service Pesawat</h1>
+                  <p>saya pernah membantu ayah menyervis pesawat</p>
                 </div>
-                <div class="col-md-4">
-                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" >
-                    <div class="card shadow">
-                        <div class="card-body text-center">
-                            <i class="fa-brands fa-servicestack" style="font-size: 100px;"></i>
-                            <h1>Service Tank</h1>
-                            <p>saya juga pernah membantu ayah menyervis tank</p>
-                        </div>
-                    </div>
-                  </div>  
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+              <div class="card shadow">
+                <div class="card-body text-center">
+                  <i class="fa-brands fa-servicestack" style="font-size: 100px;"></i>
+                  <h1>Service Tank</h1>
+                  <p>saya juga pernah membantu ayah menyervis tank</p>
                 </div>
-                <div class="col-md-4">
-                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" >
-                    <div class="card shadow">
-                        <div class="card-body text-center">
-                            <i class="fa-solid fa-mug-hot" style="font-size: 100px;"></i>
-                            <h1>Ngopi</h1>
-                            <p>Ngopi adalah salah satu hobi saya,dengan ngopi hidup lebih berwarna</p>
-                        </div>
-                    </div>
-                  </div>  
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+              <div class="card shadow">
+                <div class="card-body text-center">
+                  <i class="fa-solid fa-mug-hot" style="font-size: 100px;"></i>
+                  <h1>Ngopi</h1>
+                  <p>Ngopi adalah salah satu hobi saya,dengan ngopi hidup lebih berwarna</p>
                 </div>
-           </div>
-       </div>
-  </div>
-
-  <!-- Section: Timeline -->
-<section class="py-5 mt-4">
-  <ul class="timeline">
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">SMKN 1 Dlanggu</h5>
-      <p class="text-muted mb-2 fw-bold">2023</p>
-      <p class="text-muted">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis veniam eveniet autem, excepturi doloribus alias nemo atque? Autem, temporibus. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium. 
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">SMPN 1 Kutorejo</h5>
-      <p class="text-muted mb-2 fw-bold">2020</p>
-      <p class="text-muted">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis veniam eveniet autem, excepturi doloribus alias nemo atque? Autem, temporibus. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium.
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">SDN Gedangan 1</h5>
-      <p class="text-muted mb-2 fw-bold">2013</p>
-      <p class="text-muted">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis veniam eveniet autem, excepturi doloribus alias nemo atque? Autem, temporibus. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium.
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">TK Darmawanita</h5>
-      <p class="text-muted mb-2 fw-bold">2011</p>
-      <p class="text-muted">
-       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis veniam eveniet autem, excepturi doloribus alias nemo atque? Autem, temporibus. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium.
-      </p>
-    </li>
-  </ul>
-</section>
-<!-- Section: Timeline -->
-
-  <!-- Footer -->
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block fw-bold ">
-      <span>Social Media:</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="https://www.facebook.com/meganata.dafa.3?mibextid=ZbWKwL" class="me-lg-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.instagram.com/meganatadafa_?igsh=MTNoam8zazJ1eG9rZw==" class="me-lg-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@iki_dafa?_t=8k61RLwYqbI&_r=1" class="me-lg-4 text-reset">
-        <i class="fab fa-tiktok"></i>
-      </a>
-      <a href="https://meganatadafa.github.io/" class="me-lg-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fa-solid fa-user me-2"></i>Dafa D Valgaz
-          </h6>
-          <p>
-          Lorem,ipsum dolor sit amet. Eligendi fugit tempore laborum pariatur aut repellat molestias exercitationem!<br>
-          </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Angular</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> Mojokerto, Kutorejo</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            ariesteeven@gmail.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> +62 8575 5913 423</p>
-        </div>
-        <!-- Grid column -->
       </div>
-      <!-- Grid row -->
     </div>
-  </section>
-  <!-- Section: Links  -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2024 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">meganatadafa.github.io</a>
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="experience-page mt-5" id="perjalanan">
+        <h1 class="text-center">Perjalanan</h1>
+        <p class="text-center">perjalanan saya saat menjadi mahasiswa.</p>
+      </div>
+      <section class="py-5 mt-4 ">
+        <ul class="timeline">
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold">SMKN 1 Dlanggu (X RPL 1)</h5>
+            <p class="text-muted mb-2 fw-bold">2023</p>
+            <p class="text-muted">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis veniam eveniet autem, excepturi
+            doloribus alias nemo atque? Autem, temporibus. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Accusantium.
+          </p>
+        </li>
+        
+        <li class="timeline-item mb-5">
+          <h5 class="fw-bold">SMPN 1 Kutorejo</h5>
+          <p class="text-muted mb-2 fw-bold">2020</p>
+          <p class="text-muted">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis veniam eveniet autem, excepturi
+            doloribus alias nemo atque? Autem, temporibus. <br>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Accusantium.
+          </p>
+        </li>
+      </ul>
+    </section>
   </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+    
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up" id="portfolio">
+
+        <div class="section-title">
+          <h2>Belajar Menjadi Elite CS</h2>
+          <p>Jika ingin bisa seperti saya minimal harus tapa 1 tahun.</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="img/portfolio-1.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="img/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="img/portfolio-2.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="img/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="img/portfolio-3.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <a href="img/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="img/portfolio-4.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <a href="img/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="img/portfolio-5.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <a href="img/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="img/portfolio-6.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <a href="img/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="img/portfolio-7.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <a href="img/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="img/portfolio-8.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <a href="img/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="img/portfolio-9.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="img/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block fw-bold ">
+          <span>Social Media:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="https://www.facebook.com/meganata.dafa.3?mibextid=ZbWKwL" class="me-lg-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/meganatadafa_?igsh=MTNoam8zazJ1eG9rZw==" class="me-lg-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@iki_dafa?_t=8k61RLwYqbI&_r=1" class="me-lg-4 text-reset">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://meganatadafa.github.io/" class="me-lg-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://wa.me/6285755913423" class="me-lg-4 text-reset">
+            <i class="fab fa-fw fa-whatsapp"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fa-solid fa-user me-2"></i>Dafa D Valgaz
+              </h6>
+              <p>
+                Lorem,ipsum dolor sit amet. Eligendi fugit tempore laborum pariatur aut repellat molestias
+                exercitationem!
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Products
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Angular</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">React</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Vue</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Laravel</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Useful links
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i class="fas fa-home me-3"></i> Mojokerto, Kutorejo</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                ariesteeven@gmail.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> +62 8575 5913 423</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">meganatadafa.github.io</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
   </main>
 
-  <script> src="style/js//bootstrap.min.js"</script>
+  <script> src = "style/js//bootstrap.min.js"</script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+
+  <script src="style/js/main.js"></script>
 </body>
+
 </html>
